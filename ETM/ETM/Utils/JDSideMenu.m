@@ -227,8 +227,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
          usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:velocity options:UIViewAnimationOptionAllowUserInteraction animations:^{
              blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
 //             [self statusBarView].transform = blockSelf.containerView.transform;
-             _contentController.view.userInteractionEnabled = NO;
-             _tapGestureEnabled = YES;
+             self->_contentController.view.userInteractionEnabled = NO;
+             self->_tapGestureEnabled = YES;
          } completion:^(BOOL finished) {
              [self.containerView addGestureRecognizer:self.tapRecognizer];
          }];
@@ -240,8 +240,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     [UIView animateWithDuration:JDSideMenuDefaultCloseAnimationTime animations:^{
         blockSelf.containerView.transform = CGAffineTransformIdentity;
 //        [self statusBarView].transform = blockSelf.containerView.transform;
-        _contentController.view.userInteractionEnabled = YES;
-        _tapGestureEnabled = NO;
+        self->_contentController.view.userInteractionEnabled = YES;
+        self->_tapGestureEnabled = NO;
     } completion:^(BOOL finished) {
         [blockSelf.menuController.view removeFromSuperview];
         [self.containerView removeGestureRecognizer:self.tapRecognizer];
